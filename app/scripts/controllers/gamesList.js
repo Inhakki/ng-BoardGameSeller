@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngBoardGameSellerApp')
-	.controller('GamesListCtrl', function ($scope) {
+	.controller('GamesListCtrl', ['$scope', '$filter', function ($scope, $filter) {
 		$scope.boardGameData = [{
 			name: 'Solitaire',
 			imageUrl: 'app/images/Solitare_7.png',
@@ -15,6 +15,10 @@ angular.module('ngBoardGameSellerApp')
 				stars: 3,
 				body: 'OK game.',
 				name: 'Sarah'
+			}, {
+				stars: 2,
+				body: 'boring!',
+				name: 'Sonny'
 			}]
 		}, {
 			name: 'Monopoly',
@@ -24,6 +28,10 @@ angular.module('ngBoardGameSellerApp')
 				stars: 5,
 				body: 'Good.',
 				name: 'Hasbro'
+			}, {
+				stars: 5,
+				body: 'fun game',
+				name: 'not Hasbro'
 			}]
 		}, {
 			name: 'Texas Hold \'Em',
@@ -33,6 +41,10 @@ angular.module('ngBoardGameSellerApp')
 				stars: 5,
 				body: 'Totally addicted.',
 				name: 'Bob'
+			}, {
+				stars: 4,
+				body: 'Can\'t stop playing',
+				name: 'Larry'
 			}]
 		}, {
 			name: 'LIFE',
@@ -46,6 +58,11 @@ angular.module('ngBoardGameSellerApp')
 		}, {
 			name: 'Candyland',
 			playersNeeded: 2,
-			description: 'Simple racing board game'
+			description: 'Simple racing board game',
+			reviews:[]
 		}];
-	});
+
+		$scope.reviewVolumeOrder = function(criteria, reverse) {
+			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, criteria, reverse);
+		};
+	}]);
