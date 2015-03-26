@@ -29,7 +29,7 @@ angular
       })
       .when('/games', {
         templateUrl: 'views/games-list.html',
-        controller: 'GamesCtrl'
+        controller: 'GamesListCtrl'
       })
       .otherwise({
         redirectTo: '/'

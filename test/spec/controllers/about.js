@@ -4,6 +4,7 @@ describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ngBoardGameSellerApp'));
+  beforeEach(module('ui.bootstrap'));
 
   var AboutCtrl,
     scope;
