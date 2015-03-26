@@ -20,13 +20,18 @@ describe('Controller: GamesListCtrl', function(){
     expect(scope.boardGameData.length).toBe(5);
   });
 
+  it('should sort the list alphabetically', function(){
+    scope.alphabetize();
+    expect(scope.boardGameData[0].name).toBe("Candyland");
+  })
+
   it('should sort the list by number of reviews', function(){
-    scope.reviewVolumeOrder()
+    scope.reviewVolumeOrder();
     expect(scope.boardGameData[0].name).toBe("Solitaire");
   });
 
   it('should sort the list by highest average view', function(){
-    scope.reviewHighestRatingOrder()
+    scope.reviewHighestRatingOrder();
     expect(scope.boardGameData[0].name.toBe("Monopoly"));
   });
 });

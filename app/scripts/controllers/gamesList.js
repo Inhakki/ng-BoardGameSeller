@@ -59,10 +59,37 @@ angular.module('ngBoardGameSellerApp')
 			name: 'Candyland',
 			playersNeeded: 2,
 			description: 'Simple racing board game',
-			reviews:[]
+			reviews:[{
+				stars: 1,
+				body: 'Too childish',
+				name: 'an Adult'
+			}, {
+				stars: 1,
+				body: 'It was okay.',
+				name: 'lskdjf'
+			}, {
+				stars: 1,
+				body: 'this game is bad!',
+				name: 'Lonnie'
+			}]
 		}];
 
 		$scope.reviewVolumeOrder = function(criteria, reverse) {
 			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, criteria, reverse);
 		};
+
+		$scope.alphabetize = function(criteria, reverse) {
+			$scope.reviewVolumeOrder(criteria, reverse);
+		};
+
+		$scope.reviewHighestRatingOrder = function(criteria, reverse) {
+			var calculatedRatingsScore = function(criteria) {
+				var total;
+				for(var i=0; i < criteria.length; i++){
+					total += criteria[i].stars
+				}
+				return (total/criteria.length);
+			}
+			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, calculatedRatingsScore(criteria), reverse)
+		}
 	}]);

@@ -1,6 +1,6 @@
 <button ng-click="reverse=!reverse; reviewVolumeOrder('reviews.length', reverse)">Sort by Most Reviews</button>
-<button>Sort by Best Reviews</button>
-<button ng-click="criteria = '-name'; reverse=!reverse">Sort Alphabetically</button>
+<button ng-click="reverse=!reverse; reviewHighestRatingOrder('reviews', reverse)">Sort by Best Reviews</button>
+<button ng-click="reverse=!reverse; alphabetize('-name', reverse);">Sort Alphabetically</button>
 
 <ul>
 	<li ng-repeat="game in boardGameData | orderBy:criteria:reverse">
