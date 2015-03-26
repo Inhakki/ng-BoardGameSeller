@@ -21,6 +21,6 @@ describe('Controller: GamesListCtrl', function(){
   });
 
   it('should order the board games alphabetically.', function(){
-    expect()
+    expect(scope.orderAlphabetically()[0].name).toBe("Candyland");
   });
-})
+});
