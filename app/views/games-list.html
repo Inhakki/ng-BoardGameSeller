@@ -1,9 +1,9 @@
 <button>Sort by Most Reviews</button>
 <button>Sort by Best Reviews</button>
-<button ng-click="orderAlphabetically()">Sort Alphabetically</button>
+<button ng-click="criteria = 'name'; reverse=!reverse">Sort Alphabetically</button>
 
 <ul>
-	<li ng-repeat="game in boardGameData">
+	<li ng-repeat="game in boardGameData | orderBy:criteria:!reverse">
 		<h3>{{game.name}}</h3>
 		<p>{{game.description}}</p>
 	</li>

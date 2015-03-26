@@ -48,21 +48,4 @@ angular.module('ngBoardGameSellerApp')
 			playersNeeded: 2,
 			description: 'Simple racing board game'
 		}];
-
-		var flipAlpha = false;
-
-		$scope.orderAlphabetically = function(){
-			var alphabetized = [];
-			var games = $scope.boardGameData;
-			for(var i = 0; i < games; i++){
-				games[i].name[0].toUpperCase;
-			}
-			alphabetized = games.sort();
-			
-			if(flipAlpha === true){
-				alphabetized.reverse()
-			}
-			flipAlpha = true;
-			console.log(flipAlpha);
-		}
 	});

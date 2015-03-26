@@ -19,8 +19,4 @@ describe('Controller: GamesListCtrl', function(){
   it('should attach a list of board games to the scope also', function() {
     expect(scope.boardGameData.length).toBe(5);
   });
-
-  it('should order the board games alphabetically.', function(){
-    expect(scope.orderAlphabetically()[0].name).toBe("Candyland");
-  });
 });
