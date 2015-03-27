@@ -1,10 +1,11 @@
-<button ng-click="reverse=!reverse; reviewVolumeOrder('reviews.length', reverse)">Sort by Most Reviews</button>
-<button ng-click="reverse=!reverse; reviewHighestRatingOrder('reviews', reverse)">Sort by Best Reviews</button>
-<button ng-click="reverse=!reverse; alphabetize('-name', reverse);">Sort Alphabetically</button>
+<button ng-click="volumeReverse=!volumeReverse; reviewVolumeOrder('reviews.length', volumeReverse)">Sort by Most Reviews</button>
+<button ng-click="reviewHighestRatingOrder()">Sort by Best Reviews</button>
+<button ng-click="alphaReverse=!alphaReverse; alphabetize('-name', alphaReverse);">Sort Alphabetically</button>
 
 <ul>
 	<li ng-repeat="game in boardGameData | orderBy:criteria:reverse">
-		<h3>{{game.name}}</h3>
+		<h3>{{game.name}} </h3>
 		<p>{{game.description}}</p>
+		<p>Reviews ({{game.reviews.length}})</p>
 	</li>
 </ul>

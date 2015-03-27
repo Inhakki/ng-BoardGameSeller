@@ -74,6 +74,8 @@ angular.module('ngBoardGameSellerApp')
 			}]
 		}];
 
+		var reverseHighest = false;
+
 		$scope.reviewVolumeOrder = function(criteria, reverse) {
 			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, criteria, reverse);
 		};
@@ -82,7 +84,9 @@ angular.module('ngBoardGameSellerApp')
 			$scope.reviewVolumeOrder(criteria, reverse);
 		};
 
-		$scope.reviewHighestRatingOrder = function(criteria, reverse) {
+		$scope.reviewHighestRatingOrder = function(reverse) {
+
+			var criteria = boardGameData;
 			var calculatedRatingsScore = function(criteria) {
 				var total;
 				for(var i=0; i < criteria.length; i++){
@@ -90,6 +94,6 @@ angular.module('ngBoardGameSellerApp')
 				}
 				return (total/criteria.length);
 			}
-			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, calculatedRatingsScore(criteria), reverse)
+			$scope.boardGameData = $filter('orderBy')($scope.boardGameData, calculatedRatingsScore(), reverse)
 		}
 	}]);
